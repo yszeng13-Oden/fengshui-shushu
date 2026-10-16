@@ -27,7 +27,37 @@
 | 识人与象数 | `references/shiren-xiangshu.md` | 头像五层解读法、手机号数理、八字五行入门、象数疗法（含边界） |
 | 化解与道医 | `references/huajie-daoyi.md` | 化解的"避→化→改"顺序、八星化解对照表、形煞化解、择日、养生与心性 |
 | **择日与配色** | `references/zeri-peise.md` | 日柱推算法（含 JDN 校验锚点）、每日配色五档、黄历择日（建除十二神、黄道黑道、二十八宿、日冲日煞） |
+| **倪海厦天纪** | `references/nihaixia.md` | 紫微斗数（排盘、十四主星、四化表）、易经卜卦（摇卦、体用、变卦）、阳宅、面相；人纪只做方法导读 |
+| **中英术语表** | `references/glossary-en-zh.md` | 全套术语的中英对照：五行、八卦、八星、六宫、十四主星、择日、面相、道医 |
 | **案例库** | `references/cases/` | 真实问题的完整推演记录：输入、定盘算式、判断排序、当时的犹豫、应验回访 |
+
+## 跨平台使用
+
+这套内容不只给 Claude 用。`build.py` 从**单一源文件**生成各平台需要的格式：
+
+```bash
+python3 build.py           # 生成全部产物到 dist/
+python3 build.py --check   # 只检查源文件是否齐全
+python3 build.py --list    # 列出会生成哪些文件
+```
+
+产物对应关系：
+
+| 平台 | 产物 | 说明 |
+|---|---|---|
+| Claude（推荐） | 直接放 `SKILL.md` + `references/` | 支持按需加载，最省上下文 |
+| Claude（save_skill / 手动） | `dist/claude-single-file.md` | 单文件全量版，因为 save_skill 只接受单文件 |
+| Codex CLI | `dist/AGENTS.md` | Codex 自动读取仓库根目录的 AGENTS.md |
+| Gemini CLI | `dist/GEMINI.md` | —— |
+| Windsurf | `dist/.windsurfrules` | —— |
+| Cursor | `dist/.cursor/rules/fengshui-shushu.mdc` | 带 frontmatter 规则声明 |
+| 上下文有限的模型（网页版 DeepSeek / Kimi 等） | `dist/system-prompt-compact.md` | 只含主干，约完整版的 6.5% |
+
+**为什么有精简版**：网页版模型装不下完整内容（约 1770 行），硬塞会挤掉用户自己的问题。精简版保留主干规则和纪律，细节让用户按需查询。
+
+**工作流**：改内容 → 改 `SKILL.md` 或 `references/` → 跑 `build.py` → 各平台产物自动更新。**不要手动编辑 `dist/` 里的文件**，它们会被覆盖。
+
+`dist/` 默认已加入 `.gitignore`（产物不入库）。如果你想让某些平台的产物随着仓库发布，把对应条目从 `.gitignore` 里去掉即可。
 
 ## 案例库（这个项目最有价值的部分）
 

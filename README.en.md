@@ -27,7 +27,37 @@ This Skill fixes four things:
 | Reading people & number therapy | `references/shiren-xiangshu.md` | Five-layer profile-picture reading, phone-number numerology, bazi five-element primer, number-chanting therapy (with limits) |
 | Remedies & Daoist medicine | `references/huajie-daoyi.md` | The avoid → remedy → adjust order, remedy table by star, form-sha remedies, date selection, health cultivation and character |
 | **Date selection & colors** | `references/zeri-peise.md` | Day-pillar derivation (with JDN check anchors), five-tier daily color ranking, almanac date selection (the twelve officers, the yellow/black path deities, the 28 lunar mansions, day clashes) |
+| **Ni Haixia's Tian Ji** | `references/nihaixia.md` | Zi Wei Dou Shu (chart construction, the 14 major stars, the Four Transformations table), I Ching divination (coin casting, body/use, transformed hexagram), yang zhai, face reading; Ren Ji covered as methodology reading only |
+| **Glossary (EN/ZH)** | `references/glossary-en-zh.md` | Full bilingual term list: five elements, bagua, the eight stars, the six palaces, the 14 major stars, date selection, face reading, Daoist medicine |
 | **Case library** | `references/cases/` | Full reasoning records of real questions: inputs, the written arithmetic, ordering of judgement, what was uncertain at the time, and follow-up on accuracy |
+
+## Cross-platform use
+
+This material is not only for Claude. `build.py` generates each platform's format from a **single source**:
+
+```bash
+python3 build.py           # generate everything into dist/
+python3 build.py --check   # only verify source files are present
+python3 build.py --list    # list what would be generated
+```
+
+Output mapping:
+
+| Platform | Output | Note |
+|---|---|---|
+| Claude (recommended) | use `SKILL.md` + `references/` directly | supports on-demand loading, lightest on context |
+| Claude (save_skill / manual) | `dist/claude-single-file.md` | single-file full version, since save_skill accepts one file only |
+| Codex CLI | `dist/AGENTS.md` | Codex reads AGENTS.md from the repo root automatically |
+| Gemini CLI | `dist/GEMINI.md` | —— |
+| Windsurf | `dist/.windsurfrules` | —— |
+| Cursor | `dist/.cursor/rules/fengshui-shushu.mdc` | includes rule frontmatter |
+| Context-limited models (web DeepSeek / Kimi etc.) | `dist/system-prompt-compact.md` | main body only, about 6.5% of the full version |
+
+**Why a compact version exists**: web-based models cannot hold the full text (~1770 lines); forcing it in would crowd out the user's own question. The compact version keeps the core rules and disciplines, leaving detail to be looked up on demand.
+
+**Workflow**: edit content → edit `SKILL.md` or `references/` → run `build.py` → all platform outputs update. **Do not edit files inside `dist/` by hand** — they will be overwritten.
+
+`dist/` is git-ignored by default. If you want some platform outputs published with the repo, remove the corresponding lines from `.gitignore`.
 
 ## The case library (the most valuable part of this project)
 

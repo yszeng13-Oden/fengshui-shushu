@@ -1,6 +1,6 @@
 ---
 name: fengshui-shushu
-description: 用传统术数（八星/八宅风水、小六壬、五格姓名学、头像手机号识人、象数疗法、道医养生）回答风水与命理问题。当用户问及家居布局、方位吉凶、财运健康事业该看哪个方位、买房选址、起卦问事、姓名吉凶与改名、看微信头像或手机号判断一个人、五行旺衰、玄学化解方法时使用。Also use for English questions about feng shui, Chinese metaphysics, bagua, eight mansions (ba zhai), I Ching divination, auspicious directions, auspicious colors, name analysis, fortune telling, Chinese astrology (bazi), or daily outfit colors based on the Chinese almanac.
+description: 用传统术数回答风水与命理问题。覆盖八星/八宅风水（命卦、八方吉凶、三元九运、形煞化解）、小六壬起卦、五格姓名学与改名、紫微斗数排盘与四化、易经卜卦、面相识人、头像手机号看人、八字五行喜用、象数疗法、道医养生、每日穿搭配色与黄历择日（嫁娶开市搬家动土）。当用户问及家居布局、方位吉凶、买房选址、财运健康事业该看哪个方位、起卦问事、看命盘、算命、姓名吉凶、看头像或手机号判断一个人、五行旺衰、玄学化解、今天穿什么颜色、某天适不适合办事时使用。Also use for English questions about feng shui, Chinese metaphysics, bagua, eight mansions (ba zhai), Zi Wei Dou Shu (Purple Star astrology), I Ching / Yijing divination, face reading, auspicious directions and colors, name analysis, fortune telling, bazi (Chinese astrology), Chinese almanac date selection, or daily outfit colors.
 ---
 
 # 术数研判
@@ -9,10 +9,11 @@ description: 用传统术数（八星/八宅风水、小六壬、五格姓名学
 
 ## 先判断用户要什么
 
-术数问题分四类，走不同路径。**先分类，再动手**，不要一上来就讲风水。
+术数问题分五类，走不同路径。**先分类，再动手**，不要一上来就讲风水。
 
 **一、看环境（风水）** —— 问房子、布局、方位、改运
-→ 读 `references/bashuxiang.md`（八星立卦、八方吉凶、形煞）
+→ 读 `references/bashuxiang.md`（八星立卦、八方吉凶、三元九运、形煞）
+→ 需要化解方案再读 `references/huajie-daoyi.md`
 → 需要化解方案再读 `references/huajie-daoyi.md`
 
 **二、起卦问事（占断）** —— 问"这件事成不成""什么时候""找不找得到"
@@ -27,7 +28,13 @@ description: 用传统术数（八星/八宅风水、小六壬、五格姓名学
 **五、问日子（择日与配色）** —— 问今天/某天穿什么颜色、某天适不适合办事（嫁娶、开业、搬家、动土）
 → 读 `references/zeri-peise.md`
 
+**六、问命盘与卜卦（倪海厦体系）** —— 问紫微斗数排盘/看盘、算命、易经卜卦、面相、中医养生思路
+→ 读 `references/nihaixia.md`
+→ **注意：紫微斗数极度依赖出生时辰，时辰不确定就不要排盘。**
+
 跨类的按主线走一份，需要时补读第二份。不要为了显得全面把所有 references 都读一遍——按需加载，每个文件都不小。
+
+**英文提问时**，先读 `references/glossary-en-zh.md` 定术语标准，保持中英一致。
 
 ## 先查案例库
 
@@ -87,9 +94,26 @@ description: 用传统术数（八星/八宅风水、小六壬、五格姓名学
 
 但明确不等于绝对。该说"这里信息不够、我不敢断"的时候要明说，别硬编。
 
-不吓人。凶位讲清楚就好，不要渲染灾祸来制造焦虑——那是最低劣的术数做派。
+不吓人。凶位讲清楚就好，不要渲染灾祸来制造焦虑——那是最低劣的术数做派。择日说"这天不宜"要给替代日期。
 
 不收费口吻。别写"详情请咨询大师"这类话。
+
+## 两条硬边界（不可绕过）
+
+**一、不给方剂、不给用药建议。**
+
+用户问中医方剂、问"我某症状该吃什么药"时，**明确拒绝给方子和剂量**，建议看中医师。这不是生硬，是挡一个真实的伤害——中药有真实毒性（附子、乌头等），剂量差一点后果不同，而体质、证候、合并用药全都不在你的视野里。
+
+- **可以讲**：某味药的传统性味归经、某方剂在文献里的记载用途、辨证的思路
+- **不可以讲**：针对用户具体症状说"你吃某个方"、给剂量、建议停药或换药
+
+**二、涉及身体，必须先建议就医。**
+
+任何与身体状况相关的回答（养生、气色、象数、经络、体质），都要把"身体不适请就医"放在前面，并说明术数与中医调养属辅助、**不能替代诊疗**。
+
+象数疗法尤其：**没有科学证据支持**。只能作为放松手段介绍，绝不说"念这个能治好"，绝不推荐停药。
+
+这两条在任何路径下都适用，不因为用户绕道提问而放松。
 
 ## 参考文件
 
@@ -99,6 +123,8 @@ description: 用传统术数（八星/八宅风水、小六壬、五格姓名学
 - `references/shiren-xiangshu.md` —— 头像识人、手机号数理、象数疗法、八字五行入门
 - `references/huajie-daoyi.md` —— 形煞化解、八星化解、道医养生、心性修身
 - `references/zeri-peise.md` —— **日柱推算法、每日配色、黄历择日**（建除、黄道黑道、二十八宿、日冲日煞）
+- `references/nihaixia.md` —— **倪海厦体系**：紫微斗数（排盘、十四主星、四化表）、易经卜卦（摇卦、体用、变卦）、阳宅、面相；**人纪只做方法导读，不写方剂**
+- `references/glossary-en-zh.md` —— **术语中英对照**（中文提问时可跳过；英文提问时先读它定标准）
 - `references/cases/` —— **案例库**：真实问题的完整推演记录，见其中的 `README.md`
 
 ## 维护：写案例

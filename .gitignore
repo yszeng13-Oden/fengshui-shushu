@@ -1,0 +1,10 @@
+# 生成产物，不要提交（除非你确实想发布它们）
+dist/
+
+# Python
+__pycache__/
+*.pyc
+
+# 系统
+.DS_Store
+Thumbs.db
