@@ -1,6 +1,3 @@
-# 生成产物，不要提交（除非你确实想发布它们）
-dist/
-
 # Python
 __pycache__/
 *.pyc
@@ -8,3 +5,19 @@ __pycache__/
 # 系统
 .DS_Store
 Thumbs.db
+
+# Cursor 的规则目录不随仓库发布（各人本地生成）
+dist/.cursor/
+
+# 其余 dist/ 产物**有意入库**：
+#   dist/AGENTS.md               —— Codex 用户 clone 下来直接用
+#   dist/GEMINI.md               —— Gemini CLI 用户直接用
+#   dist/.windsurfrules          —— Windsurf 用户直接用
+#   dist/claude-single-file.md   —— 单文件版，给不支持 references/ 目录的场景
+#   dist/system-prompt-compact.md—— 上下文有限的模型用
+#
+# 理由：这是一个以文档为主的分享项目，不是软件库。别的模型用户
+# （Codex / Gemini / Windsurf / 网页版）没有 Claude 的 Skill 机制，
+# 他们要的就是这些完整单文件。让每个人自己装 Python 跑脚本是不合理的门槛。
+#
+# 注意：改完之后要重跑 `python3 build.py` 让产物与源同步。
