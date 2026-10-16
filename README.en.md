@@ -21,11 +21,27 @@ This Skill fixes four things:
 
 | Module | File | Contents |
 |---|---|---|
-| Eight Mansions feng shui | `references/bashuxiang.md` | Life-gua calculation, East/West Four Houses, the **complete Eight Mansions star table**, star elements and domains, the 24 Mountains, annual flying stars, common form-sha |
+| Eight Mansions feng shui | `references/bashuxiang.md` | Life-gua calculation, East/West Four Houses, the **complete Eight Mansions star table**, star elements and domains, **the Three Periods and Nine Ages (san yuan jiu yun)**, the 24 Mountains, annual flying stars, common form-sha |
 | Xiao Liu Ren | `references/xiaoliuren.md` | The six palaces and hand positions, year/month/day/hour casting (with a fully worked example), verdicts for each palace, timing of outcomes |
 | Name analysis | `references/xingming.md` | The two stroke-count traps, the five-grid calculation, the **full 1–81 numerology table**, three-talents configuration, name-change practice |
 | Reading people & number therapy | `references/shiren-xiangshu.md` | Five-layer profile-picture reading, phone-number numerology, bazi five-element primer, number-chanting therapy (with limits) |
 | Remedies & Daoist medicine | `references/huajie-daoyi.md` | The avoid → remedy → adjust order, remedy table by star, form-sha remedies, date selection, health cultivation and character |
+| **Date selection & colors** | `references/zeri-peise.md` | Day-pillar derivation (with JDN check anchors), five-tier daily color ranking, almanac date selection (the twelve officers, the yellow/black path deities, the 28 lunar mansions, day clashes) |
+| **Case library** | `references/cases/` | Full reasoning records of real questions: inputs, the written arithmetic, ordering of judgement, what was uncertain at the time, and follow-up on accuracy |
+
+## The case library (the most valuable part of this project)
+
+Rules can be copied by anyone. **Cases are where the real value is.**
+
+Real questions are rarely answerable by a single rule — they tend to involve interlocking good and bad factors, missing information, and conditions that contradict each other. What carries you through is the experience of knowing *what to look at first, what next, and which factor outranks which* — and that can only grow out of cases.
+
+That is what `references/cases/` holds, and it records three things you won't find elsewhere:
+
+- **What was uncertain at the time** — which step felt shaky, which missing input forced a conservative call, which of two competing schools was chosen and why
+- **Records of readings that did not come true** — keeping only the hits would rob the library of its calibration value and turn it into a self-congratulatory scrapbook
+- **Rule gaps exposed along the way** — when a case uses an approach no reference file documents, it is flagged and back-filled
+
+Fill in new cases using `references/cases/TEMPLATE.md`. The library is designed to grow with your own use.
 
 ## Installation
 
