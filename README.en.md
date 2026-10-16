@@ -2,20 +2,20 @@
 
 [中文](README.md) | **English**
 
-A **Skill** for Claude that answers feng shui and Chinese metaphysics questions according to the rules of traditional Chinese divination.
+A **knowledge package** for answering feng shui and Chinese metaphysics questions by the rules of traditional Chinese divination. The source files are plain Markdown, and `build.py` packages them for Claude Skills, Codex (`AGENTS.md`), Gemini CLI, Windsurf, Cursor, and a compact version for context-limited web models. **Not tied to any single model.**
 
-This is not a "fortune-telling app," and it is not a database scraped from any single book. It is a **structured methodology document**: the rules scattered across classical Chinese divination systems — *Ba Zhai Ming Jing* (Eight Mansions), *Xiao Liu Ren*, the Five-Grid name analysis method, and others — organized into a form that can be looked up, recomputed, and audited, with Claude forced to answer from a fixed skeleton instead of improvising.
+This is not a "fortune-telling app," and it is not a database scraped from any single book. It is a **structured methodology document**: the rules scattered across classical Chinese divination systems — *Ba Zhai Ming Jing* (Eight Mansions), *Xiao Liu Ren*, the Five-Grid name analysis method, *Zi Wei Dou Shu*, and others — organized into a form that can be looked up, recomputed, and audited, with the model forced to answer from a fixed skeleton instead of improvising.
 
 ## What problem it solves
 
 Ask an AI "where is the wealth corner of my house?" and the usual failure modes are: a vague conclusion, no stated basis, no written computation, mystical hand-waving, and a side helping of manufactured anxiety.
 
-This Skill fixes four things:
+This package fixes four things:
 
-1. **Classify, then act** — First decide whether the question is about *environment / divination / a person / health and character*. Each path is different. They don't get mixed together.
-2. **Show the arithmetic** — A life-gua calculation must be written out as `1+9+8+5=23 → 2+3=5 → 11−5=6 → Qian`. A Xiao Liu Ren reading must list all three counting passes. Character-stroke counts must state which convention was used. If you can check it, it can't bluff.
+1. **Classify, then act** — First decide whether the question is about *environment / divination / reading a person / health and character / dates and colors / a natal chart*. Each path is different. They don't get mixed together.
+2. **Show the arithmetic** — A life-gua calculation must be written out as `1+9+8+5=23 → 2+3=5 → 11−5=6 → Qian`. A Xiao Liu Ren reading must list all three counting passes. Day pillars must be verified with JDN. Zi Wei charts must show the five-element bureau and star placement. Character-stroke counts must state which convention was used. If you can check it, it can't bluff.
 3. **Fixed answer skeleton** — Establish the chart → name the positions → give concrete actions → state the limits. No stopping at "you should adjust your bed position"; it must land on "move the head of the bed to the southeast."
-4. **A few hard rules** — Don't frighten people. Don't manufacture anxiety. Don't sell anything. For the number-therapy and Daoist-medicine sections, it must recommend seeing a doctor first, must not advise stopping medication, and must not present itself as a substitute for diagnosis.
+4. **A few hard rules** — Don't frighten people. Don't manufacture anxiety. Don't sell anything. **No Chinese herbal formulas or dosage advice.** Any health-adjacent answer must lead with seeing a doctor. Number-chanting therapy is explicitly labelled as lacking scientific evidence, with no advice to stop medication.
 
 ## Coverage
 
@@ -75,13 +75,21 @@ Fill in new cases using `references/cases/TEMPLATE.md`. The library is designed 
 
 ## Installation
 
-This Skill targets Claude clients that support the Skill mechanism (such as Claude Desktop).
+**Claude (recommended):** Place the whole `fengshui-shushu/` directory into your skills folder. `SKILL.md` is the entry point; `references/` loads on demand, which is lightest on context.
 
-**Option 1 (recommended):** Place the whole `fengshui-shushu/` directory into your skills folder.
+**Claude (save_skill or manual):** `SKILL.md` is self-contained — the contents of the reference files are folded into it as appendices. If you want a single-file version, it works on its own.
 
-**Option 2:** Load it via `save_skill` in Claude Desktop — `SKILL.md` as the main body, with the five files under `references/` kept as attachments.
+**Codex CLI:** put `dist/AGENTS.md` in your project root. Codex reads it automatically.
 
-**Option 3 (manual):** `SKILL.md` is a self-contained document; the contents of all five reference files are folded into it as appendices. If you want a single-file version, `SKILL.md` alone will work — no extra files needed.
+**Gemini CLI:** `dist/GEMINI.md`.
+
+**Windsurf:** `dist/.windsurfrules`.
+
+**Cursor:** `dist/.cursor/rules/fengshui-shushu.mdc`.
+
+**Web models (DeepSeek / Kimi and others with limited context):** `dist/system-prompt-compact.md`. This contains only the core rules — about 6.5% of the full version — because the full text will not fit, and forcing it in would crowd out the user's own question.
+
+**All of the `dist/` outputs ship with this repository, so download and use them directly — no Python required.** You only need `build.py` if you want to modify the content yourself.
 
 ## Usage
 
